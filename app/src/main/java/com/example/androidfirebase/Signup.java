@@ -84,23 +84,20 @@ public class Signup extends AppCompatActivity {
 
 
                 mAuth.createUserWithEmailAndPassword(emails, passwords)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
+                        .addOnCompleteListener(task -> {
+                            progressBar.setVisibility(View.GONE);
 
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(Signup.this, "Account Created", Toast.LENGTH_SHORT).show();
+                            if (task.isSuccessful()) {
+                                Toast.makeText(Signup.this, "Account Created", Toast.LENGTH_SHORT).show();
 
-                                    Intent intent = new Intent(Signup.this, Login.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
+                                Intent intent = new Intent(Signup.this, Login.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
 
-                                    Toast.makeText(Signup.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Signup.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
 
-                                }
                             }
                         });
             }
