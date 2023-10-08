@@ -1,16 +1,9 @@
 package com.example.androidfirebase;
 
-import static android.content.ContentValues.TAG;
-
-import static java.lang.String.valueOf;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,11 +11,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class Signup extends AppCompatActivity {
 
@@ -35,16 +30,7 @@ public class Signup extends AppCompatActivity {
 
     TextView loginNow;
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if (currentUser != null) {
-//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(intent);
-//        }
-//    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +60,10 @@ public class Signup extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
 
                 String emails, passwords;
-                
+
+
+
+
                emails = String.valueOf(email.getText());
                passwords = String.valueOf(password.getText());
 
